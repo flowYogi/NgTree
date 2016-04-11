@@ -1,0 +1,35 @@
+/*
+created By Guo_rf
+*/
+body{
+    padding:0;
+}
+div.tree ul{
+    width: 50%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid cadetblue;
+}
+ ul{
+    background-color: rgba(22,22,33,.2);
+    width: 100%;
+     height: auto;
+    height: 20px;
+    padding: 0;
+     margin: 0;
+}
+ li{
+    list-style-type: none;
+    /*text-align: center;*/
+    padding: 5px auto;
+     border: 1px solid #fff;
+}
+div.tree li.scheme{
+    width: 100%;
+}
+div.tree li.son-scheme{
+    width: 50%;
+    background-color: darkgreen;
+}
