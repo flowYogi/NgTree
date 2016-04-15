@@ -61,6 +61,6 @@ app.controller('tree-home',function($scope,Tree){
     ];
 
     Tree.enhance($scope.data,'items')
-    console.log($scope.data,'if all child get the enhance')
+    //console.log($scope.data,'if all child get the enhance')
 })
 

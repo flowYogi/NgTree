@@ -13,7 +13,7 @@ app.factory('Tree',function(){
 
         /*折叠为真，展开为错，默认为折叠*/
             if(charger.$ifFolded == undefined) {
-                charger.$ifFolded = true;
+                charger.$ifFolded = false;
             }
 
         /*ng-click的时候触发是否折叠这个tree*/
