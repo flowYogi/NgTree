@@ -9,30 +9,32 @@
 <body ng-app="show">
     <div ng-controller="tree-home" class="ngTree">
 		<ul ng-if="data" class="tree1">
-			<li ng-repeat="item in data">
+			<li ng-repeat="son0 in data">
 				<span class="title">
-					id: {{item.id}} title: {{item.title}}
+					id: {{son0.id}} title: {{son0.title}}
 				</span>
 				<div class="tree-content">
-					content: {{item.content}}
+					content: {{son0.content}}
 				</div>
-					<ul ng-if="item.$hasChildren() && !item.$ifFolded" class="tree2">
-						<li ng-repeat="item in data">
+				<span ng-if="son1.$ifFolded" class="btn">+</span>
+				<span ng-if="!son1.$ifFolded" class="btn">-</span>
+				<ul ng-if="son0.$hasChildren() && !son0.$ifFolded" class="tree2">
+						<li ng-repeat="son1 in son0.items">
 					<span class="title">
-						id: {{item.id}} title: {{item.title}}
+						id: {{son1.id}} title: {{son1.title}}
 					</span>
 						<div class="tree-content">
-							content: {{item.content}}
+							content: {{son1.content}}
 						</div>
-						<ul>
-						<li ng-repeat="item in data">
-							<span ng-if="item.$ifFolded">+</span>
-							<span ng-if="!item.0ifFolder">-</span>
+							<span ng-if="son2.$ifFolded" class="btn">+</span>
+							<span ng-if="!son2.$ifFolded" class="btn">-</span>
+							<ul ng-if="son1.$hasChildren() && !son1.$ifFolded" class="tree3">
+							<li ng-repeat="son2 in son1.items">
 								<span class="title">
-									id: {{item.id}} title: {{item.title}}
+									id: {{son2.id}} title: {{son2.title}}
 								</span>
 								<div class="tree-content">
-									content: {{item.content}}
+									content: {{son2.content}}
 								</div>
 							</li>
 						</ul>
