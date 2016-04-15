@@ -1,6 +1,7 @@
 
 app.factory('Tree',function(){
     //类的增强，被过滤器依赖吧
+    var self = this;
     var enhanceItem = function (item) {
         item.$hasChildren = function (){
             if(this.items && this.items.length > 0) {
@@ -26,5 +27,6 @@ app.factory('Tree',function(){
                 enhanceItem(item)
             })
      }
+    return enhanceItem
 }
 )
