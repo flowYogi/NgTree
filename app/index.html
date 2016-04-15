@@ -16,8 +16,8 @@
 				<div class="tree-content">
 					content: {{son0.content}}
 				</div>
-				<span ng-if="son1.$ifFolded" class="btn">+</span>
-				<span ng-if="!son1.$ifFolded" class="btn">-</span>
+				<button ng-if="son0.$ifFolded" class="btn" ng-click="son0.$changeFolded()">+</button>
+				<button ng-if="!son0.$ifFolded" class="btn" ng-click="son0.$changeFolded()">-</button>
 				<ul ng-if="son0.$hasChildren() && !son0.$ifFolded" class="tree2">
 						<li ng-repeat="son1 in son0.items">
 					<span class="title">
@@ -26,11 +26,12 @@
 						<div class="tree-content">
 							content: {{son1.content}}
 						</div>
-							<span ng-if="son2.$ifFolded" class="btn">+</span>
-							<span ng-if="!son2.$ifFolded" class="btn">-</span>
+							<button ng-if="son1.$ifFolded" class="btn" ng-click="son1.$changeFolded()">+</button>
+							<button ng-if="!son1.$ifFolded" class="btn" ng-click="son1.$changeFolded()">-</button>
 							<ul ng-if="son1.$hasChildren() && !son1.$ifFolded" class="tree3">
 							<li ng-repeat="son2 in son1.items">
 								<span class="title">
+
 									id: {{son2.id}} title: {{son2.title}}
 								</span>
 								<div class="tree-content">

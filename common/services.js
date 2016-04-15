@@ -13,11 +13,12 @@ app.factory('Tree',function(){
 
         /*折叠为真，展开为错，默认为折叠*/
             if(charger.$ifFolded == undefined) {
-                charger.$ifFolded = false;
+                charger.$ifFolded = true;
             }
-
         /*ng-click的时候触发是否折叠这个tree*/
+        //todo: 考察這個方法是否有寫錯的嫌疑
         charger.$changeFolded = function (){
+            console.log('has changed')
             charger.$ifFolded = !charger.$ifFolded
         }
 
@@ -32,7 +33,7 @@ app.factory('Tree',function(){
                 enhanceItem(item,childName)
                 //靠的是enhanceitem 的 return，還是代碼自己能找到兒子呢
                 if(item.$hasChildren() == true){
-                    console.log('has child','my id is' + item.id)
+                    //console.log('has child','my id is' + item.id)
                     self.followSelf(item[childName],childName)
                 }
             })

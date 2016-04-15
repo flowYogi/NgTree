@@ -61,6 +61,10 @@ app.controller('tree-home',function($scope,Tree){
     ];
 
     Tree.enhance($scope.data,'items')
+
+    //$scope.$changeFolded = function(){}
+
     //console.log($scope.data,'if all child get the enhance')
+
 })
 
