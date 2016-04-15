@@ -3,22 +3,81 @@
 <head>
 	<meta charset="UTF-8">
 	<title>主题递归树</title>
-	<script type="text/javascript" src="../static/angular.min.js"></script>
+	<script type="text/javascript" src="../lib/angular.min.js"></script>
 	<link rel="stylesheet" href="../static/style.css">
 </head>
 <body ng-app="show">
-    <div ng-controller="tree-home" class="tree">
-		<ul ng-if="data">
-			<li ng-repeat="item in data " class="scheme">
-				id: {{item.id}} title: {{item.title}} content: {{item.content}}
-				<ul ng-if="item.$hasChildren() && !item.$ifFolded">
-					<li ng-repeat="son in item" class="son-scheme">
-						id: {{son.id}} title: {{son.title}} content: {{son.content}}
-					</li>
-				</ul>
+    <div ng-controller="tree-home" class="ngTree">
+		<ul ng-if="data" class="tree1">
+			<li ng-repeat="item in data">
+				<span class="title">
+					id: {{item.id}} title: {{item.title}}
+				</span>
+				<div class="tree-content">
+					content: {{item.content}}
+				</div>
+					<ul ng-if="item.$hasChildren() && !item.$ifFolded" class="tree2">
+						<li ng-repeat="item in data">
+					<span class="title">
+						id: {{item.id}} title: {{item.title}}
+					</span>
+						<div class="tree-content">
+							content: {{item.content}}
+						</div>
+						<ul>
+						<li ng-repeat="item in data">
+							<span ng-if="item.$ifFolded">+</span>
+							<span ng-if="!item.0ifFolder">-</span>
+								<span class="title">
+									id: {{item.id}} title: {{item.title}}
+								</span>
+								<div class="tree-content">
+									content: {{item.content}}
+								</div>
+							</li>
+						</ul>
+						</li>
+					</ul>
 			</li>
 		</ul>
 	</div>
+
+	<!--<div class="ngTree">-->
+		<!--<ul class="tree1">-->
+			<!--<li>-->
+				<!--<h1 class="title">标题党1</h1>-->
+				<!--<div class="tree-content">-->
+					<!--suapudjfosdijfosjjfosdjfoajssuapudjfosdijfosjjfosdjfoajsdfjsfj-->
+					<!--dsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwofsuapudjfosdijfosj-->
+					<!--jfosdjfoajsdfjsfjdsfjosdjfsjfdj-->
+					<!--sfjs noinvo noijfosd iojfoovoiajwofdfjsfjdsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwof-->
+				<!--</div>-->
+				<!--<ul class="tree2">-->
+					<!--<li>-->
+						<!--<h2 class="title">标题党1</h2>-->
+						<!--<div class="tree-content">-->
+							<!--suapudjfosdijfosjjfosdjfoajssuapudjfosdijfosjjfosdjfoajsdfjsfj-->
+							<!--dsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwofsuapudjfosdijfosj-->
+							<!--jfosdjfoajsdfjsfjdsfjosdjfsjfdj-->
+							<!--sfjs noinvo noijfosd iojfoovoiajwofdfjsfjdsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwof-->
+								<!--<ul class="tree3">-->
+									<!--<li>-->
+										<!--<h2 class="title">标题党1</h2>-->
+										<!--<div class="tree-content">-->
+											<!--suapudjfosdijfosjjfosdjfoajssuapudjfosdijfosjjfosdjfoajsdfjsfj-->
+											<!--dsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwofsuapudjfosdijfosj-->
+											<!--jfosdjfoajsdfjsfjdsfjosdjfsjfdj-->
+											<!--sfjs noinvo noijfosd iojfoovoiajwofdfjsfjdsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwof-->
+										<!--</div>-->
+									<!--</li>-->
+								<!--</ul>-->
+						<!--</div>-->
+					<!--</li>-->
+				<!--</ul>-->
+			<!--</li>-->
+		<!--</ul>-->
+	<!--</div>-->
+
 	<script src="index.js"></script>
 	<script src="../common/services.js"></script>
 	<!--<script src="../common/directive.js"></script>-->

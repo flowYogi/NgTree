@@ -1,7 +1,7 @@
 /*created by Guo_rf*/
 
 var app = angular.module('show',[]);
-app.controller('tree-home',function($scope){
+app.controller('tree-home',function($scope,Tree){
     $scope.data = [
         {id: 1, title: 'orgin1', content: 'orgin1 text', items: [
             {
@@ -58,6 +58,9 @@ app.controller('tree-home',function($scope){
 
             }]
         }
-    ]
+    ];
+
+    Tree.enhance($scope.data,'items')
+    console.log($scope.data,'if all child get the enhance')
 })
 

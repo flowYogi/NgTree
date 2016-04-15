@@ -4,8 +4,12 @@ created By Guo_rf
 body{
     padding:0;
 }
-div.tree ul{
-    width: 50%;
+.ngTree{
+    width: 1200px;
+    margin: 20px auto;
+}
+div.ngTree ul{
+    width: 90%;
     margin: 0 auto;
     height: auto;
     margin-top: 10px;
@@ -25,11 +29,22 @@ div.tree ul{
     /*text-align: center;*/
     padding: 5px auto;
      border: 1px solid #fff;
+     /*text-align: center;*/
 }
-div.tree li.scheme{
-    width: 100%;
+.ngTree .title{
+    font-size: 22px;
+    text-align: center;
+    font-family: 'Consolas' ,'Microsoft YaHei UI';
 }
-div.tree li.son-scheme{
-    width: 50%;
-    background-color: darkgreen;
+.ngTree .tree-content{
+    padding: 12px 40px;
+}
+.ngTree .tree1{
+    background-color: aliceblue;
+}
+.ngTree .tree2{
+    background-color: aqua;
+}
+.ngTree .tree3{
+    background-color: aliceblue;
 }

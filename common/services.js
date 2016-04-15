@@ -2,31 +2,43 @@
 app.factory('Tree',function(){
     //类的增强，被过滤器依赖吧
     var self = this;
-    var enhanceItem = function (item) {
-        item.$hasChildren = function (){
-            if(this.items && this.items.length > 0) {
+    var enhanceItem = function (charger,childName) {
+        //console.log(charger,'check if the inherit is done expectlly')
+        charger.$hasChildren = function (){
+            if(charger[childName] && charger[childName].length > 0) {
                 return true
             }
             return false
         }
 
         /*折叠为真，展开为错，默认为折叠*/
-            if(this.$ifFolded == undefined) {
-                this.$ifFolded = true;
+            if(charger.$ifFolded == undefined) {
+                charger.$ifFolded = true;
             }
 
         /*ng-click的时候触发是否折叠这个tree*/
-        item.$changeFolded = function (){
-            this.$ifFolded = !this.$ifFolded
+        charger.$changeFolded = function (){
+            charger.$ifFolded = !charger.$ifFolded
         }
 
         }
-     this.enhanceSelf = function (){
+     this.followSelf = function (input,childName){
+         if(childName == undefined){
+             childName = 'items'
+         }
         if(input && input.length > 0)
             input.map(function(item){
-                enhanceItem(item)
+                //強化的是自己
+                enhanceItem(item,childName)
+                //靠的是enhanceitem 的 return，還是代碼自己能找到兒子呢
+                if(item.$hasChildren() == true){
+                    console.log('has child','my id is' + item.id)
+                    self.followSelf(item[childName],childName)
+                }
             })
      }
-    return enhanceItem
+    return {
+        enhance: this.followSelf
+    }
 }
 )
