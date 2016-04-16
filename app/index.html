@@ -5,22 +5,15 @@
 	<title>主题递归树</title>
 	<script type="text/javascript" src="../static/angular.min.js"></script>
 	<link rel="stylesheet" href="../static/style.css">
+	<link rel="stylesheet" href="../static/angular-ui-tree.min.css">
 </head>
 <body ng-app="show">
-    <div ng-controller="tree-home" class="tree">
-		<ul ng-if="data">
-			<li ng-repeat="item in data " class="scheme">
-				id: {{item.id}} title: {{item.title}} content: {{item.content}}
-				<ul ng-if="item.$hasChildren() && !item.$ifFolded">
-					<li ng-repeat="son in item" class="son-scheme">
-						id: {{son.id}} title: {{son.title}} content: {{son.content}}
-					</li>
-				</ul>
-			</li>
-		</ul>
+    <div ng-controller="tree-home">
+		<div class="container" ng-include=""></div>
 	</div>
 	<script src="index.js"></script>
 	<script src="../common/services.js"></script>
+	<script src="../lib/plugin/angular-ui-tree.min.js"></script>
 	<!--<script src="../common/directive.js"></script>-->
 	<!--<script src="../common/filter.js"></script>-->
 </body>
