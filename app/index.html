@@ -10,6 +10,7 @@
     <div ng-controller="tree-home" class="ngTree">
 		<ul ng-if="data" class="tree1">
 			<li ng-repeat="son0 in data">
+				<input type="checkbox" ng-model="son0.$ifChoosen" ng-change="son0.$getChange()">
 				<span class="title">
 					id: {{son0.id}} title: {{son0.title}}
 				</span>
@@ -20,16 +21,18 @@
 				<button ng-if="!son0.$ifFolded" class="btn" ng-click="son0.$changeFolded()">-</button>
 				<ul ng-if="son0.$hasChildren() && !son0.$ifFolded" class="tree2">
 						<li ng-repeat="son1 in son0.items">
-					<span class="title">
-						id: {{son1.id}} title: {{son1.title}}
-					</span>
-						<div class="tree-content">
-							content: {{son1.content}}
-						</div>
+							<input type="checkbox" ng-model="son1.$ifChoosen" ng-change="son1.$getChange(son0)">
+							<span class="title">
+								id: {{son1.id}} title: {{son1.title}}
+							</span>
+								<div class="tree-content">
+									content: {{son1.content}}
+								</div>
 							<button ng-if="son1.$ifFolded" class="btn" ng-click="son1.$changeFolded()">+</button>
 							<button ng-if="!son1.$ifFolded" class="btn" ng-click="son1.$changeFolded()">-</button>
 							<ul ng-if="son1.$hasChildren() && !son1.$ifFolded" class="tree3">
 							<li ng-repeat="son2 in son1.items">
+								<input type="checkbox" ng-model="son2.$ifChoosen" ng-change="son2.$getChange(son1)">
 								<span class="title">
 
 									id: {{son2.id}} title: {{son2.title}}
@@ -45,41 +48,6 @@
 		</ul>
 	</div>
 
-	<!--<div class="ngTree">-->
-		<!--<ul class="tree1">-->
-			<!--<li>-->
-				<!--<h1 class="title">标题党1</h1>-->
-				<!--<div class="tree-content">-->
-					<!--suapudjfosdijfosjjfosdjfoajssuapudjfosdijfosjjfosdjfoajsdfjsfj-->
-					<!--dsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwofsuapudjfosdijfosj-->
-					<!--jfosdjfoajsdfjsfjdsfjosdjfsjfdj-->
-					<!--sfjs noinvo noijfosd iojfoovoiajwofdfjsfjdsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwof-->
-				<!--</div>-->
-				<!--<ul class="tree2">-->
-					<!--<li>-->
-						<!--<h2 class="title">标题党1</h2>-->
-						<!--<div class="tree-content">-->
-							<!--suapudjfosdijfosjjfosdjfoajssuapudjfosdijfosjjfosdjfoajsdfjsfj-->
-							<!--dsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwofsuapudjfosdijfosj-->
-							<!--jfosdjfoajsdfjsfjdsfjosdjfsjfdj-->
-							<!--sfjs noinvo noijfosd iojfoovoiajwofdfjsfjdsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwof-->
-								<!--<ul class="tree3">-->
-									<!--<li>-->
-										<!--<h2 class="title">标题党1</h2>-->
-										<!--<div class="tree-content">-->
-											<!--suapudjfosdijfosjjfosdjfoajssuapudjfosdijfosjjfosdjfoajsdfjsfj-->
-											<!--dsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwofsuapudjfosdijfosj-->
-											<!--jfosdjfoajsdfjsfjdsfjosdjfsjfdj-->
-											<!--sfjs noinvo noijfosd iojfoovoiajwofdfjsfjdsfjosdjfsjfdjsfjs noinvo noijfosd iojfoovoiajwof-->
-										<!--</div>-->
-									<!--</li>-->
-								<!--</ul>-->
-						<!--</div>-->
-					<!--</li>-->
-				<!--</ul>-->
-			<!--</li>-->
-		<!--</ul>-->
-	<!--</div>-->
 
 	<script src="index.js"></script>
 	<script src="../common/services.js"></script>

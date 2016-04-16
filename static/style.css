@@ -4,18 +4,6 @@ created By Guo_rf
 body{
     padding:0;
 }
-.ngTree{
-    width: 1200px;
-    margin: 20px auto;
-}
-div.ngTree ul{
-    width: 90%;
-    margin: 0 auto;
-    height: auto;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 2px solid cadetblue;
-}
 ul{
     background-color: rgba(22,22,33,.2);
     width: 100%;
@@ -31,6 +19,21 @@ li{
     border: 1px solid #fff;
     /*text-align: center;*/
     position: relative;
+}
+
+
+.ngTree{
+    width: 1200px;
+    margin: 20px auto;
+}
+div.ngTree ul{
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid cadetblue;
+    text-align: center;
 }
 .ngTree .title{
     font-size: 22px;
