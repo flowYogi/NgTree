@@ -3,7 +3,6 @@ app.factory('Tree',function(){
     var self = this
     var C = {
         checkItsChild: function(items,childName){
-            console.log(items)
             if(items && items[childName].length >0){
                 return true
             }
@@ -19,10 +18,12 @@ app.factory('Tree',function(){
         charger.$ifFolded = false
 
         charger.$changeFolded = function(){
+            console.log('has change')
             charger.ifFolded = !charger.ifFolded
         }
         charger.$deleteItself = function () {
             //未验证过
+            console.log('has delete')
             delete charger
         }
     }
@@ -30,17 +31,14 @@ app.factory('Tree',function(){
     this.init = function(items,childName){
         if(!childName) childName = 'nodes'
         //首次使用没办法用到C了，毕竟都是对象啊
-        //if(items && items.length >0){
-        //    items.map(function (item) {
-        //        enhanceItem(item,childName)
-        //    })
-        //    if(items.$hasChild()){
-        //        self.init(items[childName])
-        //    }
-        //}
-
-
-        if(items && item.length >0)
+        if(items && items.length >0){
+            items.map(function (item) {
+                enhanceItem(item,childName)
+                if(item.$hasChild()){
+                    self.init(item[childName],childName)
+                }
+            })
+        }
     }
     return {
         enhanceItem: this.init

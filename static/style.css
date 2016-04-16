@@ -13,7 +13,7 @@ div.content{
     position: relative;
     margin: 12px auto!important;
     width: 80%;
-    padding: 0;
+    padding: 5px 60px;
     height: 50px;
     border-radius: 5px;
     background-color: rgba(187, 187, 187, 0.2);

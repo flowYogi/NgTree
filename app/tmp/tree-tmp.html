@@ -18,15 +18,15 @@
                 {{item.title}}
                 <!--折叠-->
                 <button class="btn btn-primary btn-sm open" ng-click="item.$changeFolded()">
-                    <span class="glyphicon glyphicon-resize-full" ng-if="item.$ifFolded"></span>
-                    <span class="glyphicon glyphicon-resize-small" ng-if="!item.$ifFolded"></span>
+                    <span class="glyphicon glyphicon-resize-full" ng-if="!item.$ifFolded"></span>
+                    <span class="glyphicon glyphicon-resize-small" ng-if="item.$ifFolded"></span>
                 </button>
                 <!--删除-->
-                <button class="btn btn-primary btn-sm open" ng-click="item.$deleteItself()">
+                <button class="btn btn-primary btn-sm delete" ng-click="item.$deleteItself()">
                     <span class="glyphicon glyphicon-remove"></span>
                 </button>
             </div>
-               <ol ui-tree-nodes="" ng-model="item.nodes" ng-if="item.$ifFolded">
+               <ol ui-tree-nodes="" ng-model="item.nodes" ng-if="!item.$ifFolded">
                    <li ng-repeat="subItem in item.nodes" ui-tree-node>
                     <div class="content" ui-tree-handle>
                         {{subItem.title}}
@@ -38,7 +38,7 @@
                             <!--<span class="glyphicon glyphicon-resize-small" ng-if="!subItem.$ifFolded"></span>-->
                         <!--</button>-->
                         <!--删除按钮-->
-                        <button class="btn btn-primary btn-sm open" ng-click="subItem.$deleteItself()">
+                        <button class="btn btn-primary btn-sm delete" ng-click="subItem.$deleteItself()">
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </div>
