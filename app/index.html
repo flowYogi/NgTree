@@ -3,13 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>主题递归树</title>
-	<script type="text/javascript" src="../static/angular.min.js"></script>
+	<script type="text/javascript" src="../lib/angular.min.js"></script>
+	<script src="../lib/jquery-1.12.3.min.js"></script>
+	<script src="../lib/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../static/bootstrap.min.css">
 	<link rel="stylesheet" href="../static/style.css">
 	<link rel="stylesheet" href="../static/angular-ui-tree.min.css">
 </head>
 <body ng-app="show">
     <div ng-controller="tree-home">
-		<div class="container" ng-include="{{path}}"></div>
+		<div class="container" ng-include="vm.path"></div>
 	</div>
 	<script src="index.js"></script>
 	<script src="../common/services.js"></script>

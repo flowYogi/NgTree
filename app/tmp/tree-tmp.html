@@ -1,0 +1,50 @@
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--<table class="table table-hover">-->
+            <!--<tr>-->
+                <!--<th>类型</th>-->
+                <!--<th>目标</th>-->
+                <!--<th>子目标</th>-->
+                <!--<th>时间</th>-->
+                <!--<th>完成度</th>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</div>-->
+<!--</div>-->
+<div ui-tree>
+       <ol ui-tree-nodes="" ng-model="data">
+           <li ng-repeat="item in data" ui-tree-node>
+            <div class="content" ui-tree-handle>
+                {{item.title}}
+                <!--折叠-->
+                <button class="btn btn-primary btn-sm open" ng-click="item.$changeFolded()">
+                    <span class="glyphicon glyphicon-resize-full" ng-if="item.$ifFolded"></span>
+                    <span class="glyphicon glyphicon-resize-small" ng-if="!item.$ifFolded"></span>
+                </button>
+                <!--删除-->
+                <button class="btn btn-primary btn-sm open" ng-click="item.$deleteItself()">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+               <ol ui-tree-nodes="" ng-model="item.nodes" ng-if="item.$ifFolded">
+                   <li ng-repeat="subItem in item.nodes" ui-tree-node>
+                    <div class="content" ui-tree-handle>
+                        {{subItem.title}}
+
+                        <!-- 这里还可以继续拓展的，但是我考虑最多用三层 -->
+                        <!--折叠按钮-->
+                        <!--<button class="btn btn-primary btn-sm" ng-click="subItem.$changeFolded()">-->
+                            <!--<span class="glyphicon glyphicon-resize-full" ng-if="subItem.$ifFolded"></span>-->
+                            <!--<span class="glyphicon glyphicon-resize-small" ng-if="!subItem.$ifFolded"></span>-->
+                        <!--</button>-->
+                        <!--删除按钮-->
+                        <button class="btn btn-primary btn-sm open" ng-click="subItem.$deleteItself()">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>
+                       <!--<ol> 拓展的ol </ol>-->
+                   </li>
+               </ol>
+           </li>
+       </ol>
+   </div>

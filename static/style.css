@@ -2,27 +2,65 @@
 created By Guo_rf
 */
 body{
-    padding:0;
+    padding:20px 10px;
 }
-div.tree ul{
-    width: 50%;
-    margin: 0 auto;
-    height: auto;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 2px solid cadetblue;
+
+ol{
+    width: 80%;
+    margin: 2px auto!important;
 }
- ul{
-    background-color: rgba(22,22,33,.2);
-    width: 100%;
-     height: auto;
-    height: 20px;
+div.content{
+    position: relative;
+    margin: 12px auto!important;
+    width: 80%;
     padding: 0;
-     margin: 0;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgba(187, 187, 187, 0.2);
 }
- li{
-    list-style-type: none;
+button.open{
+    position: absolute;
+    left: 1px;
+    top: 4px;
+}
+button.delete{
+    position: absolute;
+    right: 1px;
+    top: 4px;
+}
+/*.table {*/
     /*text-align: center;*/
-    padding: 5px auto;
-     border: 1px solid #fff;
+/*}*/
+
+
+.code{
+    width: 400px;
+    position: absolute;
+    right:5px;
+    top:5px;
 }
+
+
+
+/*div.tree ul{*/
+/*width: 50%;*/
+/*margin: 0 auto;*/
+/*height: auto;*/
+/*margin-top: 10px;*/
+/*border-radius: 5px;*/
+/*border: 2px solid cadetblue;*/
+/*}*/
+/*ul{*/
+/*background-color: rgba(22,22,33,.2);*/
+/*width: 100%;*/
+/*height: auto;*/
+/*height: 20px;*/
+/*padding: 0;*/
+/*margin: 0;*/
+/*}*/
+/*li{*/
+/*list-style-type: none;*/
+/*!*text-align: center;*!*/
+/*padding: 5px auto;*/
+/*border: 1px solid #fff;*/
+/*}*/
