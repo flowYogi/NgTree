@@ -18,6 +18,9 @@ div.content{
     border-radius: 5px;
     background-color: rgba(187, 187, 187, 0.2);
 }
+button{
+    z-index: 1000;
+}
 button.open{
     position: absolute;
     left: 1px;

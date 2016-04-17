@@ -17,11 +17,15 @@ app.factory('Tree',function(){
         //如果为false ，表示为展开状态
         charger.$ifFolded = false
 
-        charger.$changeFolded = function(){
+        charger.$changeFolded = function(e){
+            var e = e || window.event
+            //e.preventDefault()
             console.log('has change')
             charger.ifFolded = !charger.ifFolded
         }
-        charger.$deleteItself = function () {
+        charger.$deleteItself = function (e) {
+            var e = e || window.event
+            //e.preventDefault()
             //未验证过
             console.log('has delete')
             delete charger
